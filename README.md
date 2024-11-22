@@ -1,4 +1,4 @@
-# java-cli-maven-blade-postgres-hibernate-simple
+# java-cli-maven-blade-postgres-hibernate-ssl-api
 
 ## Description
 Creates a small database table
@@ -14,8 +14,10 @@ hql.
   - postgres driver
 
 ## Docker stack
+- alpine:edge
 - maven:3-openjdk-17
 - postgres:alpine
+- traefik
 
 ## To run
 `sudo ./install.sh -u`

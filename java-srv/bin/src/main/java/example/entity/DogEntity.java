@@ -40,5 +40,7 @@ public class DogEntity implements Serializable {
   public void setBreed(String value){breed = value;}
 
   @Override
-  public String toString(){return String.format("[OUTPUT] %d, breed=%s, color=%s", id, breed, color);}
+  public String toString(){
+    return String.format("[OUTPUT] %d, breed=%s, color=%s", id, breed, color);
+  }
 }

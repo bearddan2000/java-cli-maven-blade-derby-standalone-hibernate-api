@@ -1,5 +1,7 @@
 package example.model;
 
+import com.google.gson.Gson;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import java.util.List;
@@ -25,16 +27,18 @@ public class Dog{
 
 		session.getTransaction().commit();
   }
-  public void selectAll(){
+  public String selectAll(){
+    Gson gson = new Gson();
 
 		session.beginTransaction();
 
     String hql = "FROM DogEntity";
     Query query = session.createQuery(hql);
     List<DogEntity> lst = query.list();
-    for (DogEntity entity : lst)
-      System.out.println(entity.toString());
+    String result = gson.toJson(lst);
 
 		session.getTransaction();
+
+    return result;
   }
 }
