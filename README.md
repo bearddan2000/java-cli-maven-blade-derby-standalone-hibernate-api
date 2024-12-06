@@ -1,4 +1,4 @@
-# java-cli-maven-blade-postgres-hibernate-ssl-api
+# java-cli-maven-blade-derby-standalone-hibernate-api
 
 ## Description
 Creates a small database table
@@ -11,13 +11,11 @@ hql.
   - hibernate
   - hql
   - blade
-  - postgres driver
+  - derby driver
 
 ## Docker stack
-- alpine:edge
+- az82/docker-derby
 - maven:3-openjdk-17
-- postgres:alpine
-- traefik
 
 ## To run
 `sudo ./install.sh -u`

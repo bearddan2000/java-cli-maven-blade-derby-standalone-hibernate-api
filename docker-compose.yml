@@ -3,35 +3,15 @@ services:
   java-srv:
     build: java-srv
     ports:
-      - 9000
+      - 80:9000
     depends_on:
       db:
         condition: service_healthy
         restart: true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.myapp.tls=true
-      - traefik.http.routers.myapp.rule=Host("myapi.docker.localhost")
-    
-  traefik:
-    build: traefik
-    container_name: traefik
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.traefik=true
-    ports:
-      - 443:443
-      - 8080:8080
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
 
   db:
-    build: db
-    environment:
-      - POSTGRES_DB=animal
-      - POSTGRES_USER=maria
-      - POSTGRES_PASSWORD=pass
+    image: az82/docker-derby
     ports:
-      - 5432
+      - 1527
     healthcheck:
       test: "pwd"
